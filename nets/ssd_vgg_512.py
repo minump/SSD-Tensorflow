@@ -75,19 +75,19 @@ class SSDNet(object):
     """
     default_params = SSDParams(
         img_shape=(512, 512),
-        num_classes=21,
+        num_classes=21,         # Minu   - PASCAL VOC has 20 classes, 1 class for background
         no_annotation_label=21,
         feat_layers=['block4', 'block7', 'block8', 'block9', 'block10', 'block11', 'block12'],
         feat_shapes=[(64, 64), (32, 32), (16, 16), (8, 8), (4, 4), (2, 2), (1, 1)],
         anchor_size_bounds=[0.10, 0.90],
-        anchor_sizes=[(20.48, 51.2),
+        anchor_sizes=[(20.48, 51.2),            # Minu --- why these values
                       (51.2, 133.12),
                       (133.12, 215.04),
                       (215.04, 296.96),
                       (296.96, 378.88),
-                      (378.88, 460.8),
+                      (378.88, 460.8),      # Minu - 7 boxes
                       (460.8, 542.72)],
-        anchor_ratios=[[2, .5],
+        anchor_ratios=[[2, .5],         # Minu -- why not 3 and 1/3 for these boxes
                        [2, .5, 3, 1./3],
                        [2, .5, 3, 1./3],
                        [2, .5, 3, 1./3],
